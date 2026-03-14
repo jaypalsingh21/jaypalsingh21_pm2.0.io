@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jaypal Singh · Senior Product Manager Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:    #0d2057;
+  --navy2:   #0a1a47;
+  --navy3:   #091540;
+  --navylight: #14286e;
+  --gold:    #d4920a;
+  --gold2:   #e8b020;
+  --white:   #ffffff;
+  --offwhite:#e8e4dc;
+  --muted:   rgba(255,255,255,0.55);
+  --border:  rgba(255,255,255,0.1);
+  --card-bg: rgba(255,255,255,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ══ NAV ══ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: rgba(9,21,64,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-badge {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--gold2);
+  letter-spacing: 1px;
+}
+.blink {
+  width: 7px; height: 7px;
+  background: var(--gold2);
+  border-radius: 50%;
+  animation: blink 2s ease infinite;
+}
+@keyframes blink {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.3;transform:scale(1.6)}
+}
+
+/* ══ HERO ══ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 60px 80px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 80% 50%, rgba(20,40,110,0.7) 0%, transparent 60%),
+              var(--navy3);
+}
+
+/* subtle circle decorations */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -180px; left: -120px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 80px solid rgba(212,146,10,0.06);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 60px solid rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+
+/* grid lines */
+.hero-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-left { position: relative; z-index: 2; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 7px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 10px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 .gold { color: var(--gold); }
+
+.hero-subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  color: rgba(255,255,255,0.82);
+  max-width: 440px;
+  line-height: 1.75;
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+  margin-bottom: 52px;
+  animation: fadeUp 0.7s 0.3s ease both;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.hero-btns {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: var(--gold2); }
+
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* stats card */
+.hero-right {
+  display: flex; justify-content: center; align-items: center;
+  position: relative; z-index: 2;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.stats-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.13);
+  backdrop-filter: blur(10px);
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+.domain-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.dpill {
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+}
+
+/* ══ TICKER ══ */
+.ticker-bar {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 14px 0;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes ticker {
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.tick-item {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 0 32px;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.tick-item span {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.tick-item:hover span { color: var(--gold); }
+.tick-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.5; }
+
+/* ══ SHARED SECTION STYLES ══ */
+section { padding: 100px 60px; }
+
+.sec-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 60px;
+}
+.sec-title em { font-style: italic; color: var(--gold); }
+
+/* ══ IMPACT ══ */
+.impact { background: var(--navy3); }
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+}
+
+.imp-card {
+  background: var(--navy2);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+.imp-card:hover { background: var(--navylight); }
+.imp-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.imp-card:hover::after { opacity: 1; }
+
+.imp-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 0.9;
+  display: block;
+  margin-bottom: 4px;
+}
+.imp-unit { font-size: 32px; }
+
+.imp-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+.imp-source {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+  font-family: 'DM Mono', monospace;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  letter-spacing: 1px;
+}
+
+/* ══ EXPERIENCE ══ */
+.experience { background: var(--navy); }
+
+.exp-stack { display: flex; flex-direction: column; gap: 3px; }
+
+.exp-row {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 48px;
+  background: var(--navy2);
+  padding: 40px 48px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+  align-items: start;
+}
+.exp-row:hover { border-left-color: var(--gold); background: var(--navylight); }
+
+.exp-left {}
+.exp-co {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.exp-right {}
+.exp-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.75);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 6px 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.chip:hover { background: rgba(212,146,10,0.15); border-color: var(--gold); color: var(--gold); }
+.chip.hot {
+  background: rgba(212,146,10,0.1);
+  border-color: rgba(212,146,10,0.35);
+  color: var(--gold2);
+}
+
+/* ══ SKILLS ══ */
+.skills { background: var(--navy3); }
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.skill-group { margin-bottom: 48px; }
+.sg-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bar-item { margin-bottom: 18px; }
+.bar-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  font-family: 'DM Mono', monospace;
+}
+.bar-name { font-size: 12px; color: var(--offwhite); letter-spacing: 0.5px; }
+.bar-level { font-size: 11px; color: var(--muted); }
+.bar-track {
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  animation: grow 1.2s cubic-bezier(0.4,0,0.2,1) both;
+  transform-origin: left;
+}
+@keyframes grow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+.tools-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+.tool {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 8px 16px;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.tool:hover { border-color: var(--gold); color: var(--gold); background: rgba(212,146,10,0.08); }
+
+.certs { margin-top: 8px; }
+.cert {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cert:last-child { border-bottom: none; }
+.cert-ico { font-size: 22px; flex-shrink: 0; }
+.cert-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.cert-org {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* ══ PHILOSOPHY ══ */
+.philosophy {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.philosophy::before {
+  content: '"';
+  position: absolute;
+  top: -60px; left: 30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 500px;
+  color: rgba(212,146,10,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.phi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+  position: relative; z-index: 1;
+}
+
+.phi-card {
+  background: var(--navy2);
+  padding: 52px 44px;
+  transition: background 0.25s;
+}
+.phi-card:hover { background: var(--navylight); }
+
+.phi-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.phi-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.phi-card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ══ DOMAINS ══ */
+.domains { background: var(--navy3); }
+
+.dom-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+}
+
+.dom-card {
+  background: var(--navy2);
+  padding: 40px 28px;
+  text-align: center;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.dom-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.dom-card:hover::after { transform: scaleX(1); }
+.dom-card:hover { background: var(--navylight); }
+
+.dom-icon { font-size: 34px; margin-bottom: 14px; }
+.dom-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.dom-yrs {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* ══ CONTACT ══ */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 56vh;
+}
+
+.contact-left {
+  background: var(--gold);
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--navy3);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.contact-left p {
+  font-size: 16px;
+  color: rgba(9,21,64,0.7);
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.contact-right {
+  background: var(--navy2);
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+
+.ci {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.ci:last-child { border-bottom: none; padding-bottom: 0; }
+
+.ci-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ci-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ci-val:hover { color: var(--gold); }
+
+/* ══ FOOTER ══ */
+footer {
+  background: var(--navy3);
+  padding: 22px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+footer span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px}
+  .hero-right{display:none}
+  section{padding:80px 24px}
+  .impact-grid,.phi-grid{grid-template-columns:1fr}
+  .exp-row{grid-template-columns:1fr;gap:12px}
+  .skills-layout{grid-template-columns:1fr}
+  .dom-grid{grid-template-columns:1fr 1fr}
+  .contact{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">Jaypal <span>Singh</span></div>
+  <ul class="nav-links">
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-badge"><div class="blink"></div>Open to Global Roles</div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-tag">🎯 &nbsp; Senior Product Manager · Portfolio</div>
+    <h1>Jaypal<br/><span class="gold">Singh</span></h1>
+    <p class="hero-subtitle">Travel × Fintech × AI · 11 Years · Bangalore, India</p>
+    <p class="hero-tagline">
+      A product leader who has shipped at global scale — from $4M/day booking experiences to GenAI interfaces serving 60M users.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#impact">See the Impact</a>
+      <a class="btn-outline" href="#contact">Let's Talk</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-card">
+      <div class="stats-grid">
+        <div>
+          <div class="stat-num">11<span style="font-size:22px">yrs</span></div>
+          <div class="stat-label">Total<br/>Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">$4M</div>
+          <div class="stat-label">Revenue / Day<br/>Unlocked</div>
+        </div>
+        <div>
+          <div class="stat-num">60M<span style="font-size:20px">+</span></div>
+          <div class="stat-label">Users<br/>Owned</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Companies<br/>Shipped At</div>
+        </div>
+      </div>
+      <hr class="card-divider"/>
+      <div class="domain-pills">
+        <span class="dpill">Travel Tech</span>
+        <span class="dpill">Payments</span>
+        <span class="dpill">E-Commerce</span>
+        <span class="dpill">GenAI</span>
+        <span class="dpill">Search</span>
+        <span class="dpill">Loyalty</span>
+        <span class="dpill">SMB Platform</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <div class="tick-item"><div class="tick-dot"></div><span>Product Strategy</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Travel Tech</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>GenAI Products</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Search &amp; Discovery</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Payments</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>A/B Testing</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Booking Funnels</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Growth Hacking</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Personalization</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>E-Commerce</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Loyalty Programs</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Data Analysis</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Stakeholder Management</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>GTM Strategy</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Roadmap Planning</span></div>
+    <!-- duplicate -->
+    <div class="tick-item"><div class="tick-dot"></div><span>Product Strategy</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Travel Tech</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>GenAI Products</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Search &amp; Discovery</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Payments</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>A/B Testing</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Booking Funnels</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Growth Hacking</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Personalization</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>E-Commerce</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Loyalty Programs</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Data Analysis</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Stakeholder Management</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>GTM Strategy</span></div>
+    <div class="tick-item"><div class="tick-dot"></div><span>Roadmap Planning</span></div>
+  </div>
+</div>
+
+<!-- ══ IMPACT ══ -->
+<section class="impact" id="impact">
+  <div class="sec-eyebrow">01 · Proof of Work</div>
+  <h2 class="sec-title">Numbers That<br/><em>Actually Matter</em></h2>
+
+  <div class="impact-grid">
+    <div class="imp-card reveal">
+      <span class="imp-num">$4<span class="imp-unit">M</span></span>
+      <div class="imp-desc">New Revenue Unlocked<br/>Per Day at Launch</div>
+      <div class="imp-source">▸ Delta Airlines · Ticket Shopping Redesign</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">60<span class="imp-unit">M+</span></span>
+      <div class="imp-desc">Monthly Users on<br/>Owned Roadmap</div>
+      <div class="imp-source">▸ Delta Airlines · delta.com</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">+30<span class="imp-unit">%</span></span>
+      <div class="imp-desc">Website Booking<br/>Conversion Improvement</div>
+      <div class="imp-source">▸ Vistara Airlines · Search &amp; Recommendations</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">+22<span class="imp-unit">%</span></span>
+      <div class="imp-desc">CSAT via GenAI<br/>Search &amp; Voice Interface</div>
+      <div class="imp-source">▸ Delta Airlines · Claude.ai + AWS Lambda</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">2<span class="imp-unit">X</span></span>
+      <div class="imp-desc">User Retention<br/>Redesigned Lifecycle</div>
+      <div class="imp-source">▸ Jiva Pharmacy · E-Commerce Growth</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">+45<span class="imp-unit">%</span></span>
+      <div class="imp-desc">Search Relevance via<br/>Ranking Algorithm Redesign</div>
+      <div class="imp-source">▸ Jiva Pharmacy · Core Search</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">4M</span>
+      <div class="imp-desc">Miles Redeemed Daily<br/>Trip Insurance Product</div>
+      <div class="imp-source">▸ Delta Airlines · Allianz Integration</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">89<span class="imp-unit">%</span></span>
+      <div class="imp-desc">UPI Success Rate<br/>Improved from 72%</div>
+      <div class="imp-source">▸ Paytm · Payment Gateway Analysis</div>
+    </div>
+    <div class="imp-card reveal">
+      <span class="imp-num">₹9<span class="imp-unit">Cr</span></span>
+      <div class="imp-desc">Revenue Leakage<br/>Recovered Annually</div>
+      <div class="imp-source">▸ Paytm · Data Pipelines &amp; Dashboards</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOMAINS ══ -->
+<section class="domains">
+  <div class="sec-eyebrow">02 · Domain Coverage</div>
+  <h2 class="sec-title">Where I've<br/><em>Built &amp; Shipped</em></h2>
+
+  <div class="dom-grid">
+    <div class="dom-card reveal"><div class="dom-icon">✈️</div><div class="dom-name">Travel Tech</div><div class="dom-yrs">4+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">💳</div><div class="dom-name">Fintech &amp; Payments</div><div class="dom-yrs">6+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">🛍️</div><div class="dom-name">E-Commerce</div><div class="dom-yrs">3+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">🤖</div><div class="dom-name">AI / GenAI</div><div class="dom-yrs">3+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">🔍</div><div class="dom-name">Search &amp; Discovery</div><div class="dom-yrs">5+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">📊</div><div class="dom-name">Growth &amp; Analytics</div><div class="dom-yrs">8+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">🎯</div><div class="dom-name">Loyalty &amp; Retention</div><div class="dom-yrs">5+ Years</div></div>
+    <div class="dom-card reveal"><div class="dom-icon">🌐</div><div class="dom-name">Global Markets</div><div class="dom-yrs">2+ Years</div></div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section class="experience" id="experience">
+  <div class="sec-eyebrow">03 · Career History</div>
+  <h2 class="sec-title">11 Years of<br/><em>Compounding Craft</em></h2>
+
+  <div class="exp-stack">
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Visa Inc.</div>
+        <div class="exp-period">Oct 2025 – Present<br/>Bangalore</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Senior Product Manager</div>
+        <div class="chips">
+          <span class="chip hot">Global SMB Platform MVP</span>
+          <span class="chip">International Market Adaptability</span>
+          <span class="chip">Payment Acceptance Infrastructure</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Delta Airlines</div>
+        <div class="exp-period">Jan 2023 – Oct 2025<br/>Bangalore</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Lead Tech. Product Manager-II</div>
+        <div class="chips">
+          <span class="chip hot">$4M/day new revenue</span>
+          <span class="chip hot">60M+ users, full roadmap</span>
+          <span class="chip hot">GenAI Search +22% CSAT</span>
+          <span class="chip">Search→Checkout +25%</span>
+          <span class="chip">Trip Insurance 12%→15%</span>
+          <span class="chip">GraphQL + Caching Infra</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Vistara Airlines</div>
+        <div class="exp-period">Aug 2021 – Dec 2022<br/>Gurgaon</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Product Manager, Digital &amp; E-Commerce</div>
+        <div class="chips">
+          <span class="chip hot">Digital Revenue +20% YoY</span>
+          <span class="chip">Direct Bookings +33%</span>
+          <span class="chip">Check-in Conversion 2X</span>
+          <span class="chip">Payment Gateway Integration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Jiva Pharmacy</div>
+        <div class="exp-period">Jul 2020 – Jun 2021<br/>Delhi</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Digital Product Manager</div>
+        <div class="chips">
+          <span class="chip hot">User Retention 2X</span>
+          <span class="chip hot">Search Relevance +45%</span>
+          <span class="chip">Conversion +125%</span>
+          <span class="chip">Churn Rate –21%</span>
+          <span class="chip">CSAT +30%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Wipro Ltd.</div>
+        <div class="exp-period">Jul 2019 – Jul 2020<br/>Gurgaon</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Consultant — Product (AI/ML)</div>
+        <div class="chips">
+          <span class="chip hot">ML Accuracy 65%→90%</span>
+          <span class="chip">60% Paperwork Eliminated</span>
+          <span class="chip">Client CSAT &gt;95%</span>
+          <span class="chip">NLP + Smart OCR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-left">
+        <div class="exp-co">Paytm</div>
+        <div class="exp-period">Aug 2014 – Jun 2019<br/>Noida</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Lead Product Analyst — Product &amp; Growth</div>
+        <div class="chips">
+          <span class="chip hot">₹9Cr Revenue Leakage Fixed</span>
+          <span class="chip hot">UPI Rate 72%→89%</span>
+          <span class="chip">Movie Pass: 0→5000 Txn</span>
+          <span class="chip">Retention +2X, Engagement +110%</span>
+          <span class="chip">BigData / SQL / Hive</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section class="skills" id="skills">
+  <div class="sec-eyebrow">04 · Capabilities</div>
+  <h2 class="sec-title">The Full<br/><em>Toolkit</em></h2>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group">
+        <div class="sg-title">Core Product Skills</div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Product Strategy &amp; Vision</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Booking Funnel Optimization</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Search &amp; Personalization</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Growth &amp; Retention</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Payments &amp; Checkout</span><span class="bar-level">Advanced</span></div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">GenAI Product Building</span><span class="bar-level">Advanced</span></div><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Data-Driven Decision Making</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">Certifications</div>
+        <div class="certs">
+          <div class="cert"><div class="cert-ico">🏅</div><div><div class="cert-name">SAFe POPM 6.0</div><div class="cert-org">Scaled Agile · Agile Delivery</div></div></div>
+          <div class="cert"><div class="cert-ico">🤖</div><div><div class="cert-name">AI for Product Managers</div><div class="cert-org">Applied AI in Product Management</div></div></div>
+          <div class="cert"><div class="cert-ico">🎨</div><div><div class="cert-name">Design Thinking</div><div class="cert-org">Human-Centered Design</div></div></div>
+          <div class="cert"><div class="cert-ico">🚀</div><div><div class="cert-name">Growth Hacking Foundation</div><div class="cert-org">Data-Driven Growth Strategy</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-group">
+        <div class="sg-title">Tools &amp; Tech Stack</div>
+        <div class="tools-wrap">
+          <span class="tool">SQL / BigData</span>
+          <span class="tool">Google Analytics</span>
+          <span class="tool">Adobe Analytics</span>
+          <span class="tool">CleverTap</span>
+          <span class="tool">JIRA</span>
+          <span class="tool">Trello</span>
+          <span class="tool">Lucidchart</span>
+          <span class="tool">AWS</span>
+          <span class="tool">GraphQL</span>
+          <span class="tool">Dynatrace</span>
+          <span class="tool">Sumo Logic</span>
+          <span class="tool">Adobe Suite</span>
+          <span class="tool">Claude.ai APIs</span>
+          <span class="tool">AWS Lambda</span>
+          <span class="tool">Hive</span>
+          <span class="tool">G-Ads</span>
+          <span class="tool">Roadmap Planner</span>
+          <span class="tool">A/B Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top:48px">
+        <div class="sg-title">Leadership &amp; Process</div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Stakeholder Management</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:93%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Cross-functional Leadership</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">Agile / SAFe Delivery</span><span class="bar-level">Expert</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">GTM Strategy</span><span class="bar-level">Advanced</span></div><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div></div>
+        <div class="bar-item"><div class="bar-top"><span class="bar-name">P&amp;L Optimisation</span><span class="bar-level">Advanced</span></div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section class="philosophy" id="philosophy">
+  <div class="sec-eyebrow">05 · How I Think</div>
+  <h2 class="sec-title">Product<br/><em>Philosophy</em></h2>
+
+  <div class="phi-grid">
+    <div class="phi-card reveal">
+      <div class="phi-n">01</div>
+      <h3>Metrics are the product.</h3>
+      <p>Every feature decision starts with a clear success metric — not a KPI slide, a real number that changes a business. If I can't define what winning looks like in measurable terms before building, I don't build.</p>
+    </div>
+    <div class="phi-card reveal">
+      <div class="phi-n">02</div>
+      <h3>Friction is the enemy.</h3>
+      <p>The best product experience is invisible. Whether it's a booking flow, a search result, or a payment screen — I obsess over every millisecond and click between the user and their goal. Speed is a feature.</p>
+    </div>
+    <div class="phi-card reveal">
+      <div class="phi-n">03</div>
+      <h3>AI is a multiplier, not a strategy.</h3>
+      <p>GenAI products I've shipped weren't built because AI was trending. They were built because a real user problem existed, and AI was the best solution. I build AI where it creates measurable outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<div class="contact" id="contact">
+  <div class="contact-left">
+    <h2>Let's Build Something That Scales.</h2>
+    <p>Open to Senior Product Manager, Principal PM, and Director of Product roles globally. Bangalore-based, internationally mobile, immediately available for conversations.</p>
+  </div>
+  <div class="contact-right">
+    <div class="ci">
+      <div class="ci-type">Phone</div>
+      <a class="ci-val" href="tel:+919899889258">+91 98998 89258</a>
+    </div>
+    <div class="ci">
+      <div class="ci-type">Email</div>
+      <a class="ci-val" href="mailto:jaypalsingh21@gmail.com">jaypalsingh21@gmail.com</a>
+    </div>
+    <div class="ci">
+      <div class="ci-type">LinkedIn</div>
+      <a class="ci-val" href="https://linkedin.com/in/jaypal-s/" target="_blank">linkedin.com/in/jaypal-s</a>
+    </div>
+    <div class="ci">
+      <div class="ci-type">Location</div>
+      <span class="ci-val" style="cursor:default">Bangalore · Open to Relocation</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>Jaypal Singh · Senior Product Manager</span>
+  <span>Travel × Fintech × AI · 2025</span>
+  <span>Bangalore · Available Globally</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
