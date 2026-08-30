@@ -1,2 +1,2 @@
-# jaypalsingh21_pm2.0.io
+# jaypalsingh21_portfolio.io
 Sr. Product Manager at Visa
