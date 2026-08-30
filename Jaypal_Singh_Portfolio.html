@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaypal Singh · Senior Product Manager at Visa Inc</title>
+<style>
+:root{
+  --sky:#EAF3FC;
+  --sky-2:#F5FAFE;
+  --card:#FFFFFF;
+  --ink:#0E2740;
+  --ink-2:#16324F;
+  --dim:#5C7793;
+  --dim-2:#8AA3BB;
+  --blue:#1C6FD6;
+  --blue-soft: rgba(28,111,214,0.10);
+  --blue-line: rgba(28,111,214,0.32);
+  --emerald:#12946B;
+  --emerald-soft: rgba(18,148,107,0.12);
+  --line: rgba(14,39,64,0.09);
+  --line-2: rgba(14,39,64,0.15);
+  --display:'Space Grotesk', 'Trebuchet MS', Arial, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --serif: Georgia, 'Times New Roman', serif;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background: linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 340px, var(--sky-2) 100%);
+  color:var(--ink); font-family:var(--body);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+::selection{ background:var(--blue); color:#fff; }
+.wrap{ max-width:1080px; margin:0 auto; padding:0 5vw; }
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 5vw; backdrop-filter: blur(14px);
+  background: rgba(234,243,252,0.78);
+  border-bottom:1px solid var(--line);
+}
+.nav-mark{
+  width:38px; height:38px; border-radius:50%;
+  border:1.5px solid var(--blue-line); background:var(--card);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-weight:700; font-size:13px; color:var(--blue); flex-shrink:0;
+}
+.nav-links{ display:flex; gap:32px; }
+.nav-links a{
+  color:var(--dim); text-decoration:none; font-size:12.5px; letter-spacing:.04em;
+  font-family:var(--mono); position:relative; transition:color .2s;
+}
+.nav-links a:hover, .nav-links a.active{ color:var(--ink); }
+.nav-links a.active::after{ content:''; position:absolute; left:0; right:0; bottom:-16px; height:2px; background:var(--blue); }
+.nav-cta{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase;
+  color:#fff; background:var(--blue); padding:9px 18px; border-radius:30px; text-decoration:none;
+  font-weight:700; flex-shrink:0; transition: transform .2s ease, box-shadow .2s ease;
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -10px rgba(28,111,214,.55); }
+@media(max-width:900px){ .nav-links{ display:none; } }
+
+/* ---------- badge ---------- */
+.badge{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--emerald);
+  border:1px solid rgba(18,148,107,0.35); background:var(--emerald-soft);
+  padding:7px 14px; border-radius:20px; margin-bottom:22px;
+}
+.badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 3px var(--emerald-soft); }
+
+/* ---------- hero ---------- */
+.hero{ position:relative; padding:100px 0 80px; overflow:hidden; }
+.hero::before{
+  content:''; position:absolute; top:-200px; right:-160px; width:560px; height:560px; border-radius:50%;
+  background: radial-gradient(circle, rgba(28,111,214,0.16), transparent 70%); pointer-events:none;
+}
+.hero::after{
+  content:''; position:absolute; bottom:-260px; left:-180px; width:520px; height:520px; border-radius:50%;
+  background: radial-gradient(circle, rgba(18,148,107,0.10), transparent 70%); pointer-events:none;
+}
+.eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--blue); margin-bottom:14px; display:block; }
+.hero-name{
+  font-family:var(--display); font-weight:700; letter-spacing:-0.02em; color:var(--ink);
+  font-size:clamp(46px,7.6vw,92px); line-height:0.98;
+  opacity:0; transform:translateY(24px); animation: rise .8s .1s ease forwards;
+}
+.hero-tag{
+  margin-top:14px; font-family:var(--mono); font-size:14px; color:var(--dim); letter-spacing:.02em;
+  opacity:0; transform:translateY(18px); animation: rise .8s .25s ease forwards;
+}
+.hero-role{
+  margin-top:20px; font-size:clamp(16px,2vw,20px); color:var(--ink-2); max-width:660px; line-height:1.6;
+  opacity:0; transform:translateY(18px); animation: rise .8s .38s ease forwards;
+}
+.hero-role b{ color:var(--blue); font-weight:700; }
+@keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+.hero-actions{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; opacity:0; transform:translateY(18px); animation: rise .8s .52s ease forwards; }
+.btn{ font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; padding:12px 22px; border-radius:30px; text-decoration:none; font-weight:700; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; border:none; cursor:pointer; }
+.btn-primary{ background:var(--blue); color:#fff; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -10px rgba(28,111,214,.6); }
+.btn-ghost{ border:1px solid var(--line-2); color:var(--ink); background:var(--card); }
+.btn-ghost:hover{ border-color:var(--blue-line); color:var(--blue); transform:translateY(-2px); }
+
+.stats{ margin-top:60px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+.stat{ background:var(--card); padding:26px 18px; text-align:center; }
+.stat .num{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,34px); color:var(--ink); }
+.stat .num .g{ color:var(--blue); }
+.stat .lbl{ margin-top:6px; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); font-family:var(--mono); }
+@media(max-width:720px){ .stats{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- marquee ---------- */
+.marquee-wrap{ margin-top:56px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; overflow:hidden; }
+.marquee{ display:flex; gap:14px; width:max-content; animation: scroll 32s linear infinite; }
+.marquee span{ font-family:var(--mono); font-size:12px; color:var(--dim); white-space:nowrap; display:flex; align-items:center; gap:14px; }
+.marquee span::after{ content:'✦'; color:var(--blue); font-size:9px; }
+@keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+/* ---------- section shell ---------- */
+.section{ padding:100px 0 0; }
+.section-head{ margin-bottom:12px; }
+.section-head .idx{ font-family:var(--mono); font-size:12px; color:var(--blue); letter-spacing:.14em; text-transform:uppercase; }
+.section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(28px,4vw,42px); letter-spacing:-0.01em; margin-top:10px; line-height:1.15; color:var(--ink); }
+.section-head h2 em{ font-style:italic; font-family:var(--serif); color:var(--blue); font-weight:400; }
+.section-sub{ color:var(--dim); max-width:60ch; font-size:15px; line-height:1.7; margin:14px 0 46px; }
+.reveal{ opacity:0; transform:translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* ---------- impact grid ---------- */
+.impact-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.impact-card{
+  background:var(--card); border:1px solid var(--line-2); border-radius:14px; padding:26px;
+  box-shadow:0 8px 24px -18px rgba(14,39,64,0.35);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.impact-card:hover{ transform:translateY(-4px); border-color:var(--blue-line); box-shadow:0 16px 30px -18px rgba(28,111,214,0.35); }
+.impact-num{ font-family:var(--display); font-weight:700; font-size:36px; color:var(--ink); }
+.impact-num .g{ color:var(--blue); }
+.impact-lbl{ margin-top:8px; font-size:13px; color:var(--dim); line-height:1.4; }
+.impact-src{ margin-top:16px; font-family:var(--mono); font-size:10.5px; color:var(--emerald); letter-spacing:.03em; padding-top:14px; border-top:1px dashed var(--line-2); }
+@media(max-width:860px){ .impact-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:560px){ .impact-grid{ grid-template-columns:1fr; } }
+
+/* ---------- domains ---------- */
+.domain-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.domain-card{
+  background:var(--card); border:1px solid var(--line-2); border-radius:14px; padding:22px;
+  text-align:center; box-shadow:0 8px 20px -18px rgba(14,39,64,0.3);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.domain-card:hover{ transform:translateY(-4px); border-color:var(--blue-line); }
+.domain-icon{ font-size:26px; margin-bottom:10px; }
+.domain-name{ font-family:var(--display); font-weight:700; font-size:14.5px; color:var(--ink); }
+.domain-yrs{ margin-top:6px; font-family:var(--mono); font-size:10.5px; color:var(--blue); letter-spacing:.04em; }
+@media(max-width:860px){ .domain-grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- timeline (career) ---------- */
+.timeline{ position:relative; margin-top:10px; }
+.timeline::before{ content:''; position:absolute; left:19px; top:6px; bottom:6px; width:2px; background: linear-gradient(180deg, var(--blue-line), var(--line) 90%); }
+.tnode{ position:relative; padding:0 0 44px 62px; }
+.tnode:last-child{ padding-bottom:6px; }
+.tdot{ position:absolute; left:6px; top:2px; width:28px; height:28px; border-radius:50%; background:var(--card); border:2px solid var(--blue-line); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:9px; font-weight:700; color:var(--blue); }
+.tnode.current .tdot{ background:var(--blue); color:#fff; border-color:var(--blue); box-shadow:0 0 0 5px var(--blue-soft); }
+.thead{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px 20px; cursor:pointer; }
+.thead:hover .job-co{ color:var(--blue); }
+.job-co{ font-family:var(--display); font-weight:700; font-size:21px; transition:color .2s; color:var(--ink); }
+.job-role{ font-family:var(--mono); font-size:12px; color:var(--dim); margin-top:4px; }
+.job-dates{ font-family:var(--mono); font-size:11.5px; color:var(--dim-2); white-space:nowrap; text-align:right; }
+.tbody{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.tnode.open .tbody{ max-height:400px; }
+.tbody-inner{ padding-top:16px; display:flex; flex-wrap:wrap; gap:9px; }
+.chip{ font-family:var(--mono); font-size:11.5px; padding:7px 13px; border-radius:16px; border:1px solid var(--line-2); color:var(--ink-2); background:var(--sky); }
+.expand-hint{ font-family:var(--mono); font-size:10.5px; color:var(--dim-2); margin-bottom:20px; }
+
+/* ---------- capabilities ---------- */
+.cap-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:20px; }
+.cap-card{ background:var(--card); border:1px solid var(--line-2); border-radius:14px; padding:26px; box-shadow:0 8px 22px -18px rgba(14,39,64,0.3); }
+.cap-card h3{ font-family:var(--display); font-size:15px; margin-bottom:18px; color:var(--ink); }
+.cap-card h3 .n{ color:var(--blue); font-family:var(--mono); font-size:11px; margin-right:8px; }
+.skillbar{ margin-bottom:16px; }
+.skillbar:last-child{ margin-bottom:0; }
+.skillbar-top{ display:flex; justify-content:space-between; font-size:12.5px; color:var(--ink-2); margin-bottom:7px; }
+.skillbar-top .lvl{ font-family:var(--mono); font-size:10px; color:var(--blue); letter-spacing:.05em; text-transform:uppercase; }
+.bar-track{ height:6px; border-radius:6px; background:var(--line); overflow:hidden; }
+.bar-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg, var(--blue), var(--emerald)); width:0%; transition:width 1.1s cubic-bezier(.2,.8,.2,1); }
+.cert-list{ display:flex; flex-direction:column; gap:12px; margin-top:2px; }
+.cert-item{ display:flex; gap:12px; align-items:flex-start; padding:12px; border:1px solid var(--line-2); border-radius:10px; background:var(--sky-2); }
+.cert-icon{ font-size:18px; flex-shrink:0; }
+.cert-name{ font-family:var(--display); font-weight:700; font-size:13px; color:var(--ink); }
+.cert-sub{ font-family:var(--mono); font-size:10.5px; color:var(--dim); margin-top:2px; }
+.tool-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+.tool-tag{ font-family:var(--mono); font-size:11px; padding:6px 12px; border-radius:14px; border:1px solid var(--line-2); color:var(--dim); background:var(--sky-2); }
+@media(max-width:860px){ .cap-grid{ grid-template-columns:1fr; } }
+
+/* ---------- philosophy ---------- */
+.phil-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.phil-card{ background:var(--card); border:1px solid var(--line-2); border-radius:14px; padding:28px; position:relative; overflow:hidden; box-shadow:0 8px 22px -18px rgba(14,39,64,0.3); }
+.phil-num{ font-family:var(--display); font-weight:700; font-size:44px; position:absolute; top:14px; right:18px; -webkit-text-stroke: 1px var(--blue-line); color:transparent; }
+.phil-card h4{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:20px; color:var(--ink); margin-bottom:12px; max-width:80%; }
+.phil-card p{ font-size:13.5px; color:var(--dim); line-height:1.7; }
+@media(max-width:860px){ .phil-grid{ grid-template-columns:1fr; } }
+
+/* ---------- quote / cta band ---------- */
+.cta-band{
+  margin-top:110px; padding:80px 5vw; text-align:center;
+  background: linear-gradient(180deg, #DCEBFA, var(--sky));
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.cta-band h2{ font-family:var(--display); font-weight:700; font-size:clamp(28px,4.4vw,46px); letter-spacing:-0.01em; max-width:820px; margin:0 auto 20px; color:var(--ink); }
+.cta-band h2 em{ font-style:italic; font-family:var(--serif); color:var(--blue); font-weight:400; }
+.cta-band p{ color:var(--dim); max-width:600px; margin:0 auto 34px; font-size:15px; line-height:1.7; }
+.cta-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- contact grid ---------- */
+.contact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:50px; }
+.contact-card{ background:var(--card); border:1px solid var(--line-2); border-radius:14px; padding:20px; transition: border-color .2s ease, transform .2s ease; text-decoration:none; color:var(--ink); display:block; box-shadow:0 8px 20px -18px rgba(14,39,64,0.3); }
+.contact-card:hover{ border-color:var(--blue-line); transform:translateY(-3px); }
+.contact-lbl{ font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:8px; }
+.contact-val{ font-family:var(--display); font-weight:700; font-size:14px; word-break:break-word; }
+@media(max-width:860px){ .contact-grid{ grid-template-columns:repeat(2,1fr); } }
+
+footer{ margin-top:80px; padding:36px 5vw 50px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+.foot-note{ font-family:var(--mono); font-size:11px; color:var(--dim); }
+.to-top{ position:fixed; right:26px; bottom:26px; width:44px; height:44px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none; font-weight:700; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .2s ease; box-shadow:0 10px 26px -10px rgba(14,39,64,.4); }
+.to-top.show{ opacity:1; pointer-events:auto; }
+.to-top:hover{ transform:translateY(-3px); }
+
+@media print{ nav, .to-top, .btn{ display:none; } body{ background:#fff; color:#000; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">JS</div>
+  <div class="nav-links">
+    <a href="#impact" data-sec="impact">Impact</a>
+    <a href="#experience" data-sec="experience">Experience</a>
+    <a href="#skills" data-sec="skills">Skills</a>
+    <a href="#philosophy" data-sec="philosophy">Philosophy</a>
+    <a href="#contact" data-sec="contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="#contact">Let's talk</a>
+</nav>
+
+<div class="wrap">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="badge"><span class="dot"></span>Open to Global Roles</span>
+    <span class="eyebrow">🎯 Senior Product Manager · Portfolio</span>
+    <h1 class="hero-name">Jaypal Singh</h1>
+    <div class="hero-tag">Payments × Travel × AI &nbsp;·&nbsp; 12 Years &nbsp;·&nbsp; Bangalore, India</div>
+    <p class="hero-role">A product leader scaling payments, travel and e-commerce platforms at global scale — from <b>$250B+ TPV merchant acceptance</b> to <b>$4M/day booking experiences</b> and <b>GenAI interfaces serving 60M+ users</b>.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#impact">See the Impact</a>
+      <a class="btn btn-ghost" href="#contact">Let's Talk</a>
+    </div>
+
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee" id="marquee"></div>
+  </div>
+
+  <!-- ============ IMPACT ============ -->
+  <section class="section reveal" id="impact">
+    <div class="section-head"><span class="idx">01 · Proof of Work</span><h2>Numbers That <em>Actually Matter</em></h2></div>
+    <div class="impact-grid" id="impactGrid"></div>
+  </section>
+
+  <!-- ============ DOMAINS ============ -->
+  <section class="section reveal" id="domains">
+    <div class="section-head"><span class="idx">02 · Domain Coverage</span><h2>Where I've <em>Built &amp; Shipped</em></h2></div>
+    <div class="domain-grid" id="domainGrid"></div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section reveal" id="experience">
+    <div class="section-head"><span class="idx">03 · Career History</span><h2>12 Years of <em>Compounding Craft</em></h2></div>
+    <p class="expand-hint">Click any role to expand highlight tags.</p>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- ============ CAPABILITIES ============ -->
+  <section class="section reveal" id="skills">
+    <div class="section-head"><span class="idx">04 · Capabilities</span><h2>The Full <em>Toolkit</em></h2></div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <h3><span class="n">A</span>Core Product Skills</h3>
+        <div id="skillBars"></div>
+      </div>
+      <div class="cap-card">
+        <h3><span class="n">B</span>Certifications</h3>
+        <div class="cert-list" id="certList"></div>
+      </div>
+    </div>
+    <div class="cap-grid" style="margin-top:20px;">
+      <div class="cap-card">
+        <h3><span class="n">C</span>Tools &amp; Tech Stack</h3>
+        <div class="tool-tags" id="toolTags"></div>
+      </div>
+      <div class="cap-card">
+        <h3><span class="n">D</span>Leadership &amp; Process</h3>
+        <div id="leadBars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section class="section reveal" id="philosophy">
+    <div class="section-head"><span class="idx">05 · How I Think</span><h2>Product <em>Philosophy</em></h2></div>
+    <div class="phil-grid">
+      <div class="phil-card"><div class="phil-num">01</div>
+        <h4>Metrics are the product.</h4>
+        <p>Every feature decision starts with a clear success metric — not a KPI slide, a real number that changes a business. If I can't define what winning looks like in measurable terms before building, I don't build.</p>
+      </div>
+      <div class="phil-card"><div class="phil-num">02</div>
+        <h4>Friction is the enemy.</h4>
+        <p>The best product experience is invisible. Whether it's a merchant checkout, a booking flow, or a search result — I obsess over every millisecond and click between the user and their goal. Speed is a feature.</p>
+      </div>
+      <div class="phil-card"><div class="phil-num">03</div>
+        <h4>AI is a multiplier, not a strategy.</h4>
+        <p>GenAI products I've shipped weren't built because AI was trending. They were built because a real user problem existed, and AI was the best solution — cutting time-to-market by ~50% along the way.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CTA BAND ============ -->
+<div class="cta-band reveal" id="contact">
+  <h2>Let's Build Something <em>That Scales.</em></h2>
+  <p>Open to Senior Product Manager, Principal PM, and Director of Product roles globally. Bangalore-based, internationally mobile, immediately available for conversations.</p>
+  <div class="wrap">
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+919899889258"><div class="contact-lbl">Phone</div><div class="contact-val">+91 98998 89258</div></a>
+      <a class="contact-card" href="mailto:jaypalsingh21@gmail.com"><div class="contact-lbl">Email</div><div class="contact-val">jaypalsingh21@gmail.com</div></a>
+      <a class="contact-card" href="https://linkedin.com/in/jaypalsingh-product" target="_blank"><div class="contact-lbl">LinkedIn</div><div class="contact-val">/in/jaypalsingh-product</div></a>
+      <a class="contact-card" href="#"><div class="contact-lbl">Location</div><div class="contact-val">Bangalore 560064 · Open to Relocation</div></a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <div class="foot-note">Jaypal Singh · Senior Product Manager — Payments × Travel × AI</div>
+    <div class="foot-note">2026 · Bangalore · Available Globally</div>
+  </footer>
+</div>
+
+<a href="#" class="to-top" id="toTop">↑</a>
+
+<script>
+// ---------- stats ----------
+const stats = [
+  {num:'12<span class="g">yrs</span>', lbl:'Total Experience'},
+  {num:'<span class="g">$250B+</span>', lbl:'TPV on Merchant Platform'},
+  {num:'60M<span class="g">+</span>', lbl:'Monthly Users Owned'},
+  {num:'<span class="g">$40B+</span>', lbl:'TAM Sized & Won'},
+];
+document.getElementById('stats').innerHTML = stats.map(s=>`<div class="stat"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`).join('');
+
+// ---------- marquee ----------
+const mtags = ['SMB Payment Acceptance','Unified Checkout','Digital Wallets','Travel Tech','GenAI / Agentic Workflows','E-Commerce Growth','Search & Discovery','Loyalty & Retention','Platform Strategy','GTM Strategy','Data Analysis','People Management'];
+const mHtml = mtags.map(t=>`<span>${t}</span>`).join('');
+document.getElementById('marquee').innerHTML = mHtml + mHtml;
+
+// ---------- impact ----------
+const impacts = [
+  {num:'<span class="g">$250B+</span>', lbl:'TPV Processed — 500K+ SMB Merchants', src:'▸ Visa Inc. · Payment Acceptance Platform'},
+  {num:'<span class="g">$40B+</span>', lbl:'TAM Sized in a Zero-Data Market', src:'▸ Visa Inc. · 3-Year SMB Portfolio Strategy'},
+  {num:'~<span class="g">50</span>%', lbl:'Time-to-Market Cut via GenAI Integration', src:'▸ Visa Inc. · Merchant Business Portal'},
+  {num:'<span class="g">$4M</span>/day', lbl:'Incremental Revenue from Booking Redesign', src:'▸ Delta Airlines · Ticket Shopping Redesign'},
+  {num:'60M<span class="g">+</span>', lbl:'Monthly Users on Owned delta.com Roadmap', src:'▸ Delta Airlines · Flight Search & Booking'},
+  {num:'~<span class="g">22</span>%', lbl:'Support Tickets Cut via GenAI Search & Voice', src:'▸ Delta Airlines · Claude APIs + AWS Lambda'},
+  {num:'<span class="g">+30</span>%', lbl:'Website Booking Conversion Uplift', src:'▸ Vistara Airlines · Search & Recommendations'},
+  {num:'<span class="g">2</span>X', lbl:'Check-in Conversion + 1Cr+ Ancillary Revenue', src:'▸ Vistara Airlines · Online Check-in'},
+  {num:'<span class="g">89</span>%', lbl:'UPI Success Rate — Improved from 72%', src:'▸ Paytm · Payment Gateway Analysis'},
+];
+document.getElementById('impactGrid').innerHTML = impacts.map(i=>`
+  <div class="impact-card"><div class="impact-num">${i.num}</div><div class="impact-lbl">${i.lbl}</div><div class="impact-src">${i.src}</div></div>
+`).join('');
+
+// ---------- domains ----------
+const domains = [
+  {icon:'💳', name:'Payments & SMB Acceptance', yrs:'1+ Year'},
+  {icon:'✈️', name:'Travel Tech', yrs:'4+ Years'},
+  {icon:'🛍️', name:'E-Commerce', yrs:'3+ Years'},
+  {icon:'🤖', name:'AI / GenAI', yrs:'4+ Years'},
+  {icon:'🔍', name:'Search & Discovery', yrs:'6+ Years'},
+  {icon:'📊', name:'Growth & Analytics', yrs:'9+ Years'},
+  {icon:'⚙️', name:'RPA / Automation', yrs:'1+ Year'},
+  {icon:'🌐', name:'Global Markets', yrs:'3+ Years'},
+];
+document.getElementById('domainGrid').innerHTML = domains.map(d=>`
+  <div class="domain-card"><div class="domain-icon">${d.icon}</div><div class="domain-name">${d.name}</div><div class="domain-yrs">${d.yrs}</div></div>
+`).join('');
+
+// ---------- career timeline ----------
+const jobs = [
+  { code:'VI', company:'Visa Inc.', role:'Senior Product Manager', location:'Bangalore', dates:'Oct 2025 – Present', current:true, open:true,
+    tags:['500K+ SMB merchants, $250B+ TPV','$40B+ TAM sized, $8M budget secured','Embedded AI-native merchant portal','~50% faster time-to-market via GenAI','Leading & mentoring a team of 4'] },
+  { code:'DL', company:'Delta Airlines', role:'Lead Tech Product Manager', location:'Bangalore', dates:'Jan 2023 – Oct 2025',
+    tags:['+6.8% bookings ≈ $4M/day revenue','60M+ users, owned delta.com roadmap','+70% C-SAT on booking redesign','Search→Checkout latency improved 25%','Trip insurance attach 11%→15%','GenAI search & voice cut tickets ~22%'] },
+  { code:'VS', company:'Vistara – Singapore Airlines (Air India)', role:'Product Manager', location:'Gurgaon', dates:'Aug 2021 – Dec 2022',
+    tags:['+30% booking conversion uplift','2X online check-in conversion','1Cr+ ancillary revenue generated'] },
+  { code:'JV', company:'Jiva Pharmacy', role:'Digital Product Manager', location:'Delhi', dates:'Jul 2020 – Jun 2021',
+    tags:['2X retention, +125% engagement','+125% conversion via subscriptions','Search relevance +45%, churn –21%'] },
+  { code:'WP', company:'Wipro', role:'Consultant — Product', location:'Gurgaon', dates:'Jul 2019 – Jul 2020',
+    tags:['0→1 AI/ML RPA product (OCR/NLP)','60% manual HR-ops paperwork eliminated','ML bot accuracy 65%→90%','95%+ client satisfaction sustained'] },
+  { code:'PT', company:'Paytm', role:'Lead Analyst — Product & Growth', location:'Noida', dates:'Sep 2014 – Jul 2019',
+    tags:['UPI success rate 72%→89%','₹9Cr/yr revenue leakage recovered','2X retention, +110% engagement','Movie Pass & Cancellation Protect: 0→5,000 txns, ₹2Cr revenue'] },
+];
+document.getElementById('timeline').innerHTML = jobs.map((j,i)=>`
+  <div class="tnode ${j.current?'current':''} ${j.open?'open':''}" data-i="${i}">
+    <div class="tdot">${j.code}</div>
+    <div class="thead" onclick="toggleJob(${i})">
+      <div>
+        <div class="job-co">${j.company}</div>
+        <div class="job-role">${j.role} · ${j.location}</div>
+      </div>
+      <div class="job-dates">${j.dates}</div>
+    </div>
+    <div class="tbody">
+      <div class="tbody-inner">
+        ${j.tags.map(t=>`<span class="chip">${t}</span>`).join('')}
+      </div>
+    </div>
+  </div>
+`).join('');
+function toggleJob(i){ document.querySelector(`.tnode[data-i="${i}"]`).classList.toggle('open'); }
+
+// ---------- skill bars ----------
+const coreSkills = [
+  {name:'Product Vision & Strategy', lvl:'Expert', pct:96},
+  {name:'AI-Native Product Development', lvl:'Expert', pct:93},
+  {name:'Payment Acceptance / Unified Checkout', lvl:'Expert', pct:92},
+  {name:'Platform Strategy & Product Growth', lvl:'Advanced', pct:90},
+  {name:'Data-Driven Decision Making (SQL)', lvl:'Expert', pct:95},
+  {name:'Agentic Workflows & Rapid Prototyping', lvl:'Advanced', pct:87},
+];
+document.getElementById('skillBars').innerHTML = coreSkills.map(s=>`
+  <div class="skillbar" data-pct="${s.pct}">
+    <div class="skillbar-top"><span>${s.name}</span><span class="lvl">${s.lvl}</span></div>
+    <div class="bar-track"><div class="bar-fill"></div></div>
+  </div>
+`).join('');
+
+const leadSkills = [
+  {name:'Stakeholder Management (Cross-Timezone)', lvl:'Expert', pct:95},
+  {name:'Cross-functional & People Leadership', lvl:'Expert', pct:93},
+  {name:'Agile / SAFe Delivery', lvl:'Expert', pct:91},
+  {name:'Digital Transformation', lvl:'Advanced', pct:87},
+  {name:'Go-to-Market Strategy', lvl:'Advanced', pct:85},
+];
+document.getElementById('leadBars').innerHTML = leadSkills.map(s=>`
+  <div class="skillbar" data-pct="${s.pct}">
+    <div class="skillbar-top"><span>${s.name}</span><span class="lvl">${s.lvl}</span></div>
+    <div class="bar-track"><div class="bar-fill"></div></div>
+  </div>
+`).join('');
+
+// ---------- certs ----------
+const certs = [
+  {icon:'🏅', name:'SAFe POPM 6.0', sub:'Scaled Agile · Agile Delivery'},
+  {icon:'🤖', name:'AI for Product Managers', sub:'Google · Applied AI in Product Management'},
+  {icon:'🎨', name:'Design Thinking', sub:'Human-Centered Design'},
+  {icon:'🚀', name:'Product Growth Hacking Foundations', sub:'Data-Driven Growth Strategy'},
+  {icon:'☁️', name:'Architecting on AWS', sub:'Cloud Infrastructure Fundamentals'},
+];
+document.getElementById('certList').innerHTML = certs.map(c=>`
+  <div class="cert-item"><span class="cert-icon">${c.icon}</span><div><div class="cert-name">${c.name}</div><div class="cert-sub">${c.sub}</div></div></div>
+`).join('');
+
+// ---------- tools ----------
+const tools = ['SQL / Hive / BigData','Adobe Analytics','Google Analytics','Unified Checkout','Digital Wallets','Payment Gateways','API-First Products','Claude.ai APIs','AWS Lambda','Architecting on AWS','GraphQL','JIRA','Agile / SAFe','A/B Testing','Roadmap Planning','Design Thinking'];
+document.getElementById('toolTags').innerHTML = tools.map(t=>`<span class="tool-tag">${t}</span>`).join('');
+
+// ---------- scroll reveal + bar animation ----------
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.skillbar').forEach(sb=>{
+        const fill = sb.querySelector('.bar-fill');
+        fill.style.width = sb.dataset.pct + '%';
+      });
+    }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ---------- nav active + to-top ----------
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = ['impact','experience','skills','philosophy','contact'].map(id=>document.getElementById(id));
+window.addEventListener('scroll', ()=>{
+  let current = sections[0].id;
+  sections.forEach(s=>{ if(s && window.scrollY + 140 >= s.offsetTop) current = s.id; });
+  navLinks.forEach(a=> a.classList.toggle('active', a.dataset.sec===current));
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 600);
+});
+document.getElementById('toTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
+</body>
+</html>
